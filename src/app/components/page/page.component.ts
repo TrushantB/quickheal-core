@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { User } from '../../../stories/user';
@@ -13,6 +13,15 @@ import { User } from '../../../stories/user';
 })
 export class PageComponent {
   user: User | null = null;
+
+  @Output()
+  onLogin = new EventEmitter<Event>();
+  
+  @Output()
+  onLogout = new EventEmitter<Event>();
+
+  @Output()
+  onCreateAccount = new EventEmitter<Event>();
 
   doLogout() {
     this.user = null;
